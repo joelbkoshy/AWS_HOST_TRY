@@ -1,0 +1,90 @@
+<!-- views/result.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State-wise Positive Cases</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+    }
+
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .signature {
+      margin-top: 20px;
+      color: #555;
+      font-size: 14px;
+      display: flex;
+      width: 100vh;
+      justify-content: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <h1>State-wise Positive Cases (Ascending Order)</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>State Name</th>
+        <th>Date</th>
+        <th>Samples Collected</th>
+        <th>Positive Cases</th>
+        <th>Negative Cases</th>
+        <th>Discharges</th>
+        <th>Deaths</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each statesData}}
+        <tr>
+          <td>{{stateName}}</td>
+          <td>{{date}}</td>
+          <td>{{samplesCollected}}</td>
+          <td>{{positiveCases}}</td>
+          <td>{{negativeCases}}</td>
+          <td>{{discharges}}</td>
+          <td>{{deaths}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="signature">
+    Joel B Koshy (2247218)
+  </div>
+</body>
+</html>
