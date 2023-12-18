@@ -1,0 +1,126 @@
+<!-- views/student.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="file"] {
+      margin-top: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .records-container {
+      margin-top: 20px;
+    }
+
+    .record {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .record img {
+      max-width: 100px;
+      max-height: 100px;
+      margin-right: 10px;
+    }
+
+    .alert-button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <h1>Upload Educational Certificates</h1>
+    <label for="certificateType">Certificate Type:</label>
+    <input type="text" name="certificateType" required>
+
+    <label for="certificateFile">Upload Certificate File:</label>
+    <input type="file" name="certificateFile" accept="application/pdf, image/*" required>
+
+    <input type="submit" value="Upload" onclick="showAlert()">
+
+    <div class="records-container">
+      {{#each certificates}}
+      <div class="record">
+        <img src="{{this.filePath}}" alt="{{this.certificateType}}">
+        <div>
+          <strong>{{this.certificateType}}</strong>
+          <p>Uploaded on: {{formatDate this.uploadedDate}}</p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+
+    <script>
+      function showAlert() {
+        alert('Uploaded to S3');
+      }
+    </script>
+  </form>
+</body>
+
+</html>

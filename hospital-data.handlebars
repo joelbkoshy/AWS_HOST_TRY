@@ -1,0 +1,89 @@
+<!-- views/hospital-data.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Data</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .alert-button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hospital Data</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Hospital Name</th>
+        <th>Location</th>
+        <th>Specialization</th>
+        <th>Capacity</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each hospitalsData}}
+      <tr>
+        <td>{{this.hospitalName}}</td>
+        <td>{{this.location}}</td>
+        <td>{{this.specialization}}</td>
+        <td>{{this.capacity}}</td>
+        <td>{{this.contactNumber}}</td>
+        <td>{{this.email}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- Alert Button -->
+  <button class="alert-button" onclick="showAlert()">Show Alert</button>
+
+  <script>
+    function showAlert() {
+      alert('Uploaded to S3');
+    }
+  </script>
+</body>
+
+</html>

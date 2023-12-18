@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,26 @@
       align-items: center;
       height: 100vh;
     }
+
+    .link-container {
+      margin-top: 20px;
+    }
+
+    .dynamo-link {
+      display: block;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dynamo-link:hover {
+      background-color: #45a049;
+    }
+
 
     form {
       background-color: #fff;
@@ -63,35 +84,39 @@
     }
   </style>
 </head>
+
 <body>
   <form action="/submit" method="post">
-    <h1>Enter State Details</h1>
-    <label for="stateName">State Name:</label>
+    <h1>Enter Class Details</h1>
+    <label for="stateName">Course Name:</label>
     <input type="text" name="stateName" required>
 
-    <label for="date">Date of Record:</label>
+    <label for="date">Course Beginning Date:</label>
     <input type="date" name="date" required>
 
-    <label for="samplesCollected">No Samples Collected:</label>
+    <label for="samplesCollected">No of Students Registered:</label>
     <input type="number" name="samplesCollected" required>
 
-    <label for="positiveCases">No of Positive Cases:</label>
+    <label for="positiveCases">No of Students Admitted:</label>
     <input type="number" name="positiveCases" required>
 
-    <label for="negativeCases">No of Negative Cases:</label>
+    <label for="negativeCases">No of Students Passed:</label>
     <input type="number" name="negativeCases" required>
 
-    <label for="discharges">No of Discharges:</label>
+    <label for="discharges">No of Students Failed:</label>
     <input type="number" name="discharges" required>
 
-    <label for="deaths">No of Deaths:</label>
+    <label for="deaths">No of Students with Distinction:</label>
     <input type="number" name="deaths" required>
+    <label for="image">Upload Image:</label>
+    <input type="file" name="image" accept="image/*">
 
     <input type="submit" value="Submit">
 
-    <div class="signature">
-      Joel B Koshy (2247218)
+    <div class="link-container">
+
     </div>
   </form>
 </body>
+
 </html>

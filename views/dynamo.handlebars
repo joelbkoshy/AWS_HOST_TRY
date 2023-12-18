@@ -1,0 +1,106 @@
+<!-- views/hospital-form.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Details Form</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .signature {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #555;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/hospital-submit" method="post">
+    <h1>Enter Hospital Details</h1>
+    <label for="hospitalName">Hospital Name:</label>
+    <input type="text" name="hospitalName" required>
+
+    <label for="location">Location:</label>
+    <input type="text" name="location" required>
+
+    <label for="specialization">Specialization:</label>
+    <select name="specialization" required>
+      <option value="general">General</option>
+      <option value="cardiology">Cardiology</option>
+      <option value="orthopedics">Orthopedics</option>
+      <!-- Add more options based on your needs -->
+    </select>
+
+    <label for="capacity">Capacity:</label>
+    <input type="number" name="capacity" required>
+
+    <label for="contactNumber">Contact Number:</label>
+    <input type="tel" name="contactNumber" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+
+    <input type="submit" value="Submit">
+
+    <div class="signature">
+      Your Name (Your ID)
+    </div>
+  </form>
+</body>
+</html>
